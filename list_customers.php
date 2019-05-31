@@ -18,7 +18,7 @@ require_once 'config.inc.php';
 require_once 'header.inc.php';
 ?>
 <div>
-    <h2>Customer List</h2>
+    <h2>Missing Child List</h2>
     <?php
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database, $port);
@@ -29,7 +29,8 @@ require_once 'header.inc.php';
     }
 
 	// Prepare SQL Statement
-    $sql = "SELECT CustomerNumber,CustomerName FROM Customer ORDER BY CustomerName";
+    //$sql = "SELECT CustomerNumber,CustomerName FROM Customer ORDER BY CustomerName";
+    $sql = "SELECT firstName,middleName,lastName FROM Person";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -40,10 +41,10 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Loop Through Result
-        $stmt->bind_result($customerNumber,$customerName);
+        $stmt->bind_result($firstName, $middleName, $lastName);
         echo "<ul>";
         while ($stmt->fetch()) {
-            echo '<li><a href="show_customer.php?id='  . $customerNumber . '">' . $customerName . '</a></li>';
+            echo "<p>" . $firstName," ",$middleName," ",$lastName . "</p>";
         }
         echo "</ul>";
     }
