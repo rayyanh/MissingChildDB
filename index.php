@@ -25,7 +25,9 @@ require_once 'header.inc.php';
 </div>
     <h2>Available commands: </h2>
     <br>
-    <button type="button" class="btn btn-dark"><a class = "text-white"href="list_customers.php">List <em>all</em> missing children</a></button>
+    <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">List <em>all</em> missing children</a></button>
+    <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">Select based on state</a></button>
+    <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">Update information</a></button>
 </div>
 </body>
 </html>

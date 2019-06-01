@@ -9,15 +9,15 @@ require_once 'config.inc.php';
 // Get Customer Number
 $id = $_GET['id'];
 if ($id === "") {
-    header('location: list_customers.php');
+    header('location: list_children.php');
     exit();
 }
 if ($id === false) {
-    header('location: list_customers.php');
+    header('location: list_children.php');
     exit();
 }
 if ($id === null) {
-    header('location: list_customers.php');
+    header('location: list_children.php');
     exit();
 }
 ?>
@@ -25,6 +25,7 @@ if ($id === null) {
 <head>
     <title>Sample PHP Database Program</title>
     <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <?php

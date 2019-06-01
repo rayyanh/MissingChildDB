@@ -9,15 +9,15 @@ require_once 'config.inc.php';
 // Get Customer Number
 $id = $_GET['id'];
 if ($id === "") {
-    header('location: list_customers.php');
+    header('location: list_children.php');
     exit();
 }
 if ($id === false) {
-    header('location: list_customers.php');
+    header('location: list_children.php');
     exit();
 }
 if ($id === null) {
-    header('location: list_customers.php');
+    header('location: list_children.php');
     exit();
 }
 ?>
@@ -31,7 +31,7 @@ if ($id === null) {
 require_once 'header.inc.php';
 ?>
 <div>
-    <h2>Show Customer</h2>
+    <h2>Show Missing Child</h2>
     <?php
 
     // Create connection
@@ -58,16 +58,16 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Process Results Using Cursor
-        $stmt->bind_result($customerNumber,$customerName,$streetName,$cityName,$stateCode,$postalCode);
+        $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate);
         echo "<div>";
         while ($stmt->fetch()) {
-            echo '<a href="show_customer.php?id='  . $customerNumber . '">' . $customerName . '</a><br>' .
-             $streetName . ',' . $stateCode . '  ' . $postalCode;
+            echo '<a href="show_customer.php?id='  . $personID . '">' . $firstName . '</a><br>' .
+             $middleName . ',' . $lastName . '  ' . $birthDate;
         }
         echo "</div>";
     ?>
         <div>
-            <a href="update_customer.php?id=<?= $customerNumber ?>">Update Customer</a>
+            <a href="update_customer.php?id=<?= $personID ?>">Update Customer</a>
         </div>
     <?php
     }
