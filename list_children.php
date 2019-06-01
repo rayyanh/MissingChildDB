@@ -48,7 +48,7 @@ require_once 'header.inc.php';
         echo "<ul>";
         while ($stmt->fetch()) {
             // echo "<p>" . $firstName," ",$middleName," ",$lastName . "</p>";
-            echo '<li><a href="show_customer.php?id='  . $personID . '">'  . $firstName," ",$lastName . '</a></li>';
+            echo '<li><a href="show_children.php?id='  . $personID . '">'  . $firstName," ",$lastName . '</a></li>';
         }
         echo "</ul>";
     }

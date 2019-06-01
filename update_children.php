@@ -31,8 +31,9 @@ if ($id === null) {
 <?php
 require_once 'header.inc.php';
 ?>
-<div>
-    <h2>Update Customer</h2>
+<div class = "container">
+<br>
+    <h2>Update Child Age</h2>
     <?php
 
     // Create connection
@@ -45,24 +46,24 @@ require_once 'header.inc.php';
 
 	// Check the Request is an Update from User -- Submitted via Form
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $customerName = $_POST['customerName'];
-        if ($customerName === null)
-            echo "<div><i>Specify a new name</i></div>";
-        else if ($customerName === false)
-            echo "<div><i>Specify a new name</i></div>";
-        else if (trim($customerName) === "")
-            echo "<div><i>Specify a new name</i></div>";
+        $age = $_POST['age'];
+        if ($age === null)
+            echo "<div><i>Specify a new age</i></div>";
+        else if ($age === false)
+            echo "<div><i>Specify a new age</i></div>";
+        else if (trim($age) === "")
+            echo "<div><i>Specify a new age</i></div>";
         else {
 			
             /* perform update using safe parameterized sql */
-            $sql = "UPDATE Customer SET CustomerName = ? WHERE CustomerNumber = ?";
+            $sql = "UPDATE Person SET age = ? WHERE personID = ?";
             $stmt = $conn->stmt_init();
             if (!$stmt->prepare($sql)) {
                 echo "failed to prepare";
             } else {
 				
 				// Bind user input to statement
-                $stmt->bind_param('ss', $customerName,$id);
+                $stmt->bind_param('ss', $age,$id);
 				
 				// Execute statement and commit transaction
                 $stmt->execute();
@@ -72,8 +73,7 @@ require_once 'header.inc.php';
     }
 
     /* Refresh the Data */
-    $sql = "SELECT CustomerNumber,CustomerName,StreetAddress,CityName,StateCode,PostalCode FROM Customer C " .
-        "INNER JOIN Address A ON C.defaultAddressID = A.addressID WHERE CustomerNumber = ?";
+    $sql = "SELECT personID,firstName,middleName,lastName,birthDate,age FROM Person WHERE personID = ?";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -81,18 +81,25 @@ require_once 'header.inc.php';
     else {
         $stmt->bind_param('s',$id);
         $stmt->execute();
-        $stmt->bind_result($customerNumber,$customerName,$streetName,$cityName,$stateCode,$postalCode);
+        $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate,$age);
         ?>
         <form method="post">
             <input type="hidden" name="id" value="<?= $id ?>">
         <?php
         while ($stmt->fetch()) {
-            echo '<a href="show_customer.php?id='  . $customerNumber . '">' . $customerName . '</a><br>' .
-             $streetName . ',' . $stateCode . '  ' . $postalCode;
+            echo '<a href="show_children.php?id='. $firstName . '"></a>' . '<p><strong>Name: </strong>'. $firstName .'  '.$middleName .' '. $lastName . '</p>' . "<p><strong>Birth Date: </strong>$birthDate <br><strong>Age: </strong>$age </p>";
+
         }
-    ?><br><br>
-            New Name: <input type="text" name="customerName">
-            <button type="submit">Update</button>
+    ?>
+            <!-- <input type="text" name="age" class="form-control col-md-6"  placeholder="Input New Age">
+            <button class = "btn col-auto" type="submit number">Update</button> -->
+            <div class="input-group mb-3">
+                <input type="text" name ="age" class="form-control" placeholder="Input New Age">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit number">Update</button>
+                </div>
+            </div>
+        
         </form>
     <?php
     }

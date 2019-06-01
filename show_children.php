@@ -63,12 +63,12 @@ require_once 'header.inc.php';
         $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate,$age);
         echo '<div>';
         while ($stmt->fetch()) {
-            echo '<a href="show_customer.php?id='. $firstName . '"></a>' . '<p><strong>Name: </strong>'. $firstName .'  '.$middleName .' '. $lastName . '</p>' . "<p><strong>Birth Date: </strong>$birthDate <br><strong>Age: </strong>$age </p>";
+            echo '<a href="show_children.php?id='. $firstName . '"></a>' . '<p><strong>Name: </strong>'. $firstName .'  '.$middleName .' '. $lastName . '</p>' . "<p><strong>Birth Date: </strong>$birthDate <br><strong>Age: </strong>$age </p>";
         }
         echo "</div>";
     ?>
         <div>
-            <a href="update_customer.php?id=<?= $personID ?>">Update Child Age</a>
+            <a href="update_children.php?id=<?= $personID ?>">Update Child Age</a>
         </div>
     <?php
     }
