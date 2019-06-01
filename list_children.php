@@ -33,7 +33,7 @@ require_once 'header.inc.php';
 
 	// Prepare SQL Statement
     //$sql = "SELECT CustomerNumber,CustomerName FROM Customer ORDER BY CustomerName";
-    $sql = "SELECT firstName,middleName,lastName FROM Person";
+    $sql = "SELECT personID,firstName,middleName,lastName FROM Person";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -44,11 +44,11 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Loop Through Result
-        $stmt->bind_result($firstName, $middleName, $lastName);
+        $stmt->bind_result($personID,$firstName, $middleName, $lastName);
         echo "<ul>";
         while ($stmt->fetch()) {
             // echo "<p>" . $firstName," ",$middleName," ",$lastName . "</p>";
-            echo '<li><a href="show_customer.php?id='  . $personID . '">'  . $firstName," ",$middleName," ",$lastName . '</a></li>';
+            echo '<li><a href="show_customer.php?id='  . $personID . '">'  . $firstName," ",$lastName . '</a></li>';
         }
         echo "</ul>";
     }

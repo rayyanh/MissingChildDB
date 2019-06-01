@@ -30,7 +30,8 @@ if ($id === null) {
 <?php
 require_once 'header.inc.php';
 ?>
-<div>
+<br>
+<div class = "container">
     <h2>Show Missing Child</h2>
     <?php
 
@@ -43,8 +44,10 @@ require_once 'header.inc.php';
     }
 
 	// Prepare SQL using Parameterized Form (Safe from SQL Injections)
-    $sql = "SELECT CustomerNumber,CustomerName,StreetAddress,CityName,StateCode,PostalCode FROM Customer C " .
-        "INNER JOIN Address A ON C.defaultAddressID = A.addressID WHERE CustomerNumber = ?";
+    // $sql = "SELECT CustomerNumber,CustomerName,StreetAddress,CityName,StateCode,PostalCode FROM Customer C " .
+    //     "INNER JOIN Address A ON C.defaultAddressID = A.addressID WHERE CustomerNumber = ?";
+
+    $sql = "SELECT personID,firstName,middleName,lastName,birthDate,age FROM Person WHERE personID = ?";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -58,16 +61,16 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Process Results Using Cursor
-        $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate);
-        echo "<div>";
+        $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate,$age);
+        echo '<div>';
         while ($stmt->fetch()) {
-            echo '<a href="show_customer.php?id='  . $personID . '">' . $firstName . '</a><br>' .
-             $middleName . ',' . $lastName . '  ' . $birthDate;
+            echo '<a href="show_customer.php?id='. $firstName . '">' . $firstName . ' </a>' .
+             $middleName. ' ' . $lastName . '<br>' . $birthDate . '<br>' . $age;
         }
         echo "</div>";
     ?>
         <div>
-            <a href="update_customer.php?id=<?= $personID ?>">Update Customer</a>
+            <a href="update_customer.php?id=<?= $personID ?>">Update Child Information</a>
         </div>
     <?php
     }
