@@ -1,9 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: MKochanski
- * Date: 7/24/2018
- * Time: 3:07 PM
+ * @Author: Rayyan Hussain
+ * 
+ * with code skeleton provided by Mark Kochanski
  */
 require_once 'config.inc.php';
 // Get Customer Number
@@ -23,7 +22,7 @@ if ($id === null) {
 ?>
 <html>
 <head>
-    <title>Sample PHP Database Program</title>
+    <title>Missing Child Information Page</title>
     <link rel="stylesheet" href="base.css">
 </head>
 <body>
@@ -64,13 +63,12 @@ require_once 'header.inc.php';
         $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate,$age);
         echo '<div>';
         while ($stmt->fetch()) {
-            echo '<a href="show_customer.php?id='. $firstName . '">' . $firstName . ' </a>' .
-             $middleName. ' ' . $lastName . '<br>' . $birthDate . '<br>' . $age;
+            echo '<a href="show_customer.php?id='. $firstName . '"></a>' . '<p><strong>Name: </strong>'. $firstName .'  '.$middleName .' '. $lastName . '</p>' . "<p><strong>Birth Date: </strong>$birthDate <br><strong>Age: </strong>$age </p>";
         }
         echo "</div>";
     ?>
         <div>
-            <a href="update_customer.php?id=<?= $personID ?>">Update Child Information</a>
+            <a href="update_customer.php?id=<?= $personID ?>">Update Child Age</a>
         </div>
     <?php
     }
