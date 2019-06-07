@@ -33,7 +33,11 @@ require_once 'header.inc.php';
 
 	// Prepare SQL Statement
     //$sql = "SELECT CustomerNumber,CustomerName FROM Customer ORDER BY CustomerName";
-    $sql = "SELECT personID,firstName,middleName,lastName FROM Person";
+    //$sql = "SELECT personID,firstName,middleName,lastName FROM Person";
+    $sql = "Select personID,firstName,middleName,lastName
+    From Person 
+    Join Location
+    On Person.locationID = Location.locationID";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";

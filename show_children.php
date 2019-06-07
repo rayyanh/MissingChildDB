@@ -46,7 +46,12 @@ require_once 'header.inc.php';
     // $sql = "SELECT CustomerNumber,CustomerName,StreetAddress,CityName,StateCode,PostalCode FROM Customer C " .
     //     "INNER JOIN Address A ON C.defaultAddressID = A.addressID WHERE CustomerNumber = ?";
 
-    $sql = "SELECT personID,firstName,middleName,lastName,birthDate,age FROM Person WHERE personID = ?";
+//    $sql = "SELECT personID,firstName,middleName,lastName,birthDate,age FROM Person WHERE personID = ?";
+    
+    $sql = "Select personID, firstName, middleName, lastName, birthDate, age, locationName, streetAddress, cityName, stateCode
+    From Person 
+    Join Location
+    On Person.locationID = Location.locationID WHERE personID = ?";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -60,10 +65,10 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Process Results Using Cursor
-        $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate,$age);
+        $stmt->bind_result($personID,$firstName,$middleName,$lastName,$birthDate,$age,$locationName,$streetAddress,$cityName,$stateCode);
         echo '<div>';
         while ($stmt->fetch()) {
-            echo '<a href="show_children.php?id='. $firstName . '"></a>' . '<p><strong>Name: </strong>'. $firstName .'  '.$middleName .' '. $lastName . '</p>' . "<p><strong>Birth Date: </strong>$birthDate <br><strong>Age: </strong>$age </p>";
+            echo '<a href="show_children.php?id='. $firstName . '"></a>' . '<p><strong>Name: </strong>'. $firstName .'  '.$middleName .' '. $lastName . '</p>' . "<p><strong>Birth Date: </strong>$birthDate <br><strong>Age: </strong>$age </p><p><strong>Location: </strong>$locationName <br><strong>Street Address: </strong>$streetAddress <br><strong>State Code: </strong>$stateCode </p>";
         }
         echo "</div>";
     ?>
