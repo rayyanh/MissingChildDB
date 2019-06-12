@@ -34,7 +34,7 @@ require_once 'header.inc.php';
 	// Prepare SQL Statement
     //$sql = "SELECT CustomerNumber,CustomerName FROM Customer ORDER BY CustomerName";
     //$sql = "SELECT personID,firstName,middleName,lastName FROM Person";
-    $sql = "Select personID,firstName,middleName,lastName
+    $sql = "Select personID,firstName,middleName,lastName,birthDate,age
     From Person 
     Join Location
     On Person.locationID = Location.locationID";
@@ -48,11 +48,12 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Loop Through Result
-        $stmt->bind_result($personID,$firstName, $middleName, $lastName);
+        $stmt->bind_result($personID,$firstName, $middleName, $lastName, $birthDate, $age);
         echo "<ul>";
         while ($stmt->fetch()) {
             // echo "<p>" . $firstName," ",$middleName," ",$lastName . "</p>";
             echo '<li><a href="show_children.php?id='  . $personID . '">'  . $firstName," ",$lastName . '</a></li>';
+            echo "<p>BirthDate: $birthDate <br>Age: $age</p>";
         }
         echo "</ul>";
     }

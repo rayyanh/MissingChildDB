@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: markk@uw.edu
- * Date: 7/24/2018
- * Time: 2:45 PM
+ * @Author: Rayyan Hussain
 */?>
 <html>
 <head>
@@ -26,7 +23,7 @@ require_once 'header.inc.php';
     <h2>Available commands: </h2>
     <br>
     <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">List <em>all</em> missing children</a></button>
-    <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">Select based on ???</a></button>
+    <!-- <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">Select based on ???</a></button> -->
     <button type="button" class="btn btn-dark"><a class = "text-white"href="list_children.php">Update information</a></button>
 </div>
 </body>
