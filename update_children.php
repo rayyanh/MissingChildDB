@@ -99,6 +99,9 @@ require_once 'header.inc.php';
                     <button class="btn btn-outline-secondary" type="submit number">Update</button>
                 </div>
             </div>
+            <br>
+            <br>
+            <button type="button" class="btn btn-dark"><a class="text-white" href="show_children.php?id=<?= $personID ?>">Back to details</a></button>
         
         </form>
     <?php
