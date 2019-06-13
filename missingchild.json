@@ -1,0 +1,99 @@
+{
+    "Person": {
+        "2": {
+            "firstName": "Shelby",
+            "middleName": "Raistlin",
+            "lastName": "Wright",
+            "birthDate": "1970-07-04",
+            "age": "23"
+        },
+        "3": {
+            "firstName": "Jesus",
+            "lastName": "Cortes",
+            "birthDate": "2015-03-17",
+            "age": "4"
+        },
+        "4": {
+            "firstName": "Joshua",
+            "middleName": "Gordillo",
+            "lastName": "Cortes",
+            "birthDate": "2017-09-18",
+            "age": "1"
+        }
+    },
+
+    "Location": {
+        "2": {
+            "locationName": "Snohomish",
+            "cityName": "Snohomish",
+            "stateCode": "47",
+            "streetAddress": "4th Street"
+        },
+        "3": {
+            "locationName": "Oxnard",
+            "cityName": "Oxnard",
+            "stateCode": "5",
+            "streetAddress": "142nd Ave"
+        },
+        "5": {
+            "locationName": "Rapid City",
+            "cityName": "Rapid City",
+            "stateCode": "41",
+            "streetAddress": "12718 Se 4th"
+        }
+    },
+
+    "PoliceDepartment": {
+        "1": {
+            "locationID": "2",
+            "policeDeptName": "Snohomish County Sherrif's Office",
+            "contactID": "1"
+        },
+        "2": {
+            "locationID": "11",
+            "policeDeptName": "Yakima Police Department",
+            "contactID": "2"
+        },
+        "3": {
+            "locationID": "3",
+            "policeDeptName": "Oxnard Police Department",
+            "contactID": "3"
+        }
+    },
+
+    "Abductor": {
+        "2": {
+            "name": "mother",
+            "sexCode": "2",
+            "phoneNum": "2025550159"
+        },
+        "15": {
+            "name": "Roman Cerratos",
+            "sexCode": "1",
+            "phoneNum": "2147483647"
+        },
+        "17": {
+            "name": "Father",
+            "sexCode": "1",
+            "phoneNum": "1040455995"
+        }
+    },
+
+    "MissingReport": {
+        "2": {
+            "lastSeenLocation": "Snohomish Area",
+            "missingDate": "2004-07-26",
+            "policeDeptID": "1"
+        },
+        "3": {
+            "lastSeenLocation": "Oxnard",
+            "missingDate": "2016-01-12",
+            "policeDeptID": "3"
+        },
+        "4": {
+            "lastSeenLocation": "Oxnard",
+            "missingDate": "2019-01-19",
+            "policeDeptID": "3"
+        }
+    }
+}
