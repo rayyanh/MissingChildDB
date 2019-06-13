@@ -86,6 +86,7 @@ require_once 'header.inc.php';
             <br><br><br>
             <button type="button" class="btn btn-dark"><a class="text-white" href="show_children.php?id=<?= $personID - 1 ?>">Previous Child</a></button>
             <button type="button" class="btn btn-dark"><a class="text-white" href="show_children.php?id=<?= $personID + 1 ?>">Next Child</a></button>
+            <button type="button" class="btn btn-dark"><a class="text-white" href="list_children.php">Back to list</a></button>
         </div>
     <?php
     }

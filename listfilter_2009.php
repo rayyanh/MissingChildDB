@@ -10,7 +10,7 @@ require_once 'config.inc.php';
 ?>
 <html>
 <head>
-    <title>Missing Children DB</title>
+    <title>Ordered By BirthDate</title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -44,9 +44,11 @@ require_once 'header.inc.php';
     //$sql = "SELECT CustomerNumber,CustomerName FROM Customer ORDER BY CustomerName";
     //$sql = "SELECT personID,firstName,middleName,lastName FROM Person";
     $sql = "Select personID,firstName,middleName,lastName,birthDate,age
-    From Person 
-    Join Location
-    On Person.locationID = Location.locationID";    
+    From Person
+    WHERE birthDate > 20080000
+    Order by age
+    ASC";
+
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -57,7 +59,9 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Loop Through Result
+        // $stmt->bind_result($personID, $firstName, $middleName, $lastName, $age);
         $stmt->bind_result($personID,$firstName, $middleName, $lastName, $birthDate, $age);
+
         echo "<ul>";
         while ($stmt->fetch()) {
             // echo "<p>" . $firstName," ",$middleName," ",$lastName . "</p>";

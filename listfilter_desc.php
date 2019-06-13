@@ -10,7 +10,7 @@ require_once 'config.inc.php';
 ?>
 <html>
 <head>
-    <title>Missing Children DB</title>
+    <title>Ordered By Descending</title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -46,7 +46,10 @@ require_once 'header.inc.php';
     $sql = "Select personID,firstName,middleName,lastName,birthDate,age
     From Person 
     Join Location
-    On Person.locationID = Location.locationID";    
+    On Person.locationID = Location.locationID
+    Order by age
+    DESC";
+
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
@@ -57,7 +60,9 @@ require_once 'header.inc.php';
         $stmt->execute();
 		
 		// Loop Through Result
+        // $stmt->bind_result($personID, $firstName, $middleName, $lastName, $age);
         $stmt->bind_result($personID,$firstName, $middleName, $lastName, $birthDate, $age);
+
         echo "<ul>";
         while ($stmt->fetch()) {
             // echo "<p>" . $firstName," ",$middleName," ",$lastName . "</p>";
