@@ -16,8 +16,8 @@ require_once 'header.inc.php';
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Missing Children Database</h1>
-    <p class="lead">This is an online repository of missing children. You can see all missing children, search based on state, and more.</p>
-    <p>This is <strong>NOT</strong> a place to report missing children. For that, please call 911.</p>
+    <p class="lead">This is an online repository of missing children. You can see all missing children in our database, filter based on age group, and sort by birth year.</p>
+    <p>This is <strong>NOT</strong> a place to report missing children. For emergencies, please call 911.</p>
   </div>
 </div>
     <h2>Available commands: </h2>

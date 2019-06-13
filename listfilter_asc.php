@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: MKochanski
- * Date: 7/24/2018
- * Time: 3:07 PM
+ *@Author Rayyan Hussain
  */
 require_once 'config.inc.php';
 

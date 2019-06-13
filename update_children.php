@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: MKochanski
- * Date: 7/24/2018
- * Time: 3:07 PM
+ *@Author Rayyan Hussain
  */
 require_once 'config.inc.php';
 // Get Customer Number
@@ -23,7 +20,7 @@ if ($id === null) {
 ?>
 <html>
 <head>
-    <title>Sample PHP Database Program</title>
+    <title>Missing Child DB</title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>

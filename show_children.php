@@ -1,8 +1,6 @@
 <?php
 /**
- * @Author: Rayyan Hussain
- * 
- * with code skeleton provided by Mark Kochanski
+ *@Author Rayyan Hussain
  */
 require_once 'config.inc.php';
 // Get Customer Number
