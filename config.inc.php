@@ -2,8 +2,8 @@
 /**
  * @Author Rayyan Hussain
  */
-$servername = 'vergil.u.washington.edu'; // Server
-$username = 'root';
-$password = 'team7rox';
-$database = 'missingChildren';
-$port = 7868; // Port
+$servername = 'loremipsum'; // Server
+$username = 'loremipsum';
+$password = 'loremipsum';
+$database = 'loremipsum';
+$port = 0000; // Port
